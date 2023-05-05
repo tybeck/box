@@ -1,4 +1,4 @@
-import {Controller, Get, Inject, Res} from '@nestjs/common';
+import {Controller, Get, Res} from '@nestjs/common';
 import {Response} from 'express';
 
 import {CameraService} from './index.service';

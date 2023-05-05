@@ -105,10 +105,12 @@ export class ThermoHygrometerService {
     if (this.bus) {
       try {
         const data = await this.#getMeasurement();
+        console.log('data', data);
         if (data) {
           const humidity = ((data[1] << 12) | (data[2] << 4) | (data[3] >> 4)) / 1048576.0 * 100.0;
           const celsius = ((data[3] & 0x0F) << 16 | data[4] << 8 | data[5]) / 1048576.0 * 200.0 - 50.0;
           const temperature = celsius * 9 / 5 + 32;
+          console.log(humidity, celsius, temperature);
           return {
             humidity,
             temperature,
