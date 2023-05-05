@@ -39,6 +39,7 @@ export class CameraService {
 
   getVideoFeed(res: Response) {
     if (!this.isCapturingAlready) {
+      this.readable = new Readable();
       this.readable.pipe(this.writable);
       this.camera.startCapture();
       this.isCapturingAlready = true;
