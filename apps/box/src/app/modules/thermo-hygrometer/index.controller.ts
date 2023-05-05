@@ -5,7 +5,7 @@ import {ThermoHygrometerService} from './index.service';
 @Controller('/thermo-hygrometer')
 export class ThermoHygrometerController {
   constructor(
-    @Inject() private thermoHygrometerService: ThermoHygrometerService
+    private thermoHygrometerService: ThermoHygrometerService,
   ) {}
 
   @Get('/reading')
