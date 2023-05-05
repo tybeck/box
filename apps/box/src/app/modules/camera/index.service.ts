@@ -42,7 +42,10 @@ export class CameraService {
       this.isCapturingAlready = true;
     }
 
-    this.stream.pipe(res);
-    this.stream.on('end', () => res.end());
+    this.stream.on('data', chunk => {
+      console.log('chunky', chunk);
+      res.write(chunk);
+    });
+    this.stream.on('end', _ => res.end());
   }
 }
