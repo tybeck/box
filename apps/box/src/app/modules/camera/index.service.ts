@@ -13,7 +13,6 @@ export class CameraService {
   private camera: StreamCamera | null;
   private stream: Readable | null;
   private writable: WriteStream | null;
-  private readable: Readable | null;
 
   constructor() {
     this.#create();
@@ -39,22 +38,11 @@ export class CameraService {
 
   getVideoFeed(res: Response) {
     if (!this.isCapturingAlready) {
-      this.readable = new Readable();
-      this.readable.pipe(this.writable);
       this.camera.startCapture();
       this.isCapturingAlready = true;
     }
 
-    res.on('data', chunk =>
-      res.write(chunk)
-    );
-
-    res.on('end', () =>
-      res.end()
-    );
-
-    res.on('error', () =>
-      res.end()
-    );
+    this.stream.pipe(res);
+    this.stream.on('end', () => res.end());
   }
 }
