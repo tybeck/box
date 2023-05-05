@@ -125,7 +125,7 @@ export class ThermoHygrometerService {
     //     }
     //   }
     // }
-    await this.readData();
+    console.log('data...', await this.readData());
     return {}
   }
 
