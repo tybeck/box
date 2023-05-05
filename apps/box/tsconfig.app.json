@@ -5,7 +5,12 @@
     "module": "commonjs",
     "types": ["node"],
     "emitDecoratorMetadata": true,
-    "target": "es2015"
+    "target": "es2015",
+    "baseUrl": "./",
+    "paths": {
+      "@box/modules/camera": ["src/app/modules/camera/index.module"],
+      "@box/modules/thermo-hygrometer": ["src/app/modules/thermo-hygrometer/index.module"]
+    }
   },
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
   "include": ["src/**/*.ts"]

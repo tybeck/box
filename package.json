@@ -8,7 +8,13 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nx/expo": "^16.1.0",
+    "@nx/react": "^16.1.0",
+    "@types/i2c-bus": "^5.1.0",
     "axios": "^1.0.0",
+    "i2c-bus": "^5.2.2",
+    "onoff": "^6.0.3",
+    "pi-camera-connect": "^0.3.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
     "tslib": "^2.3.0"
