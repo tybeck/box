@@ -3,7 +3,7 @@ import {Response} from 'express';
 
 import {CameraService} from './index.service';
 
-@Controller()
+@Controller('/camera')
 export class CameraController {
   constructor(
     private camera: CameraService

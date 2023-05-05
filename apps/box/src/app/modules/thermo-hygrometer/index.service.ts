@@ -102,6 +102,7 @@ export class ThermoHygrometerService {
    * Get a reading that has just been measured
    */
   async getCurrentReading() {
+    console.log('???');
     if (this.bus) {
       try {
         const data = await this.#getMeasurement();
@@ -117,6 +118,7 @@ export class ThermoHygrometerService {
           };
         }
       } catch(e) {
+        console.log('error', e);
         return {
           humidity: 0,
           temperature: 0,
