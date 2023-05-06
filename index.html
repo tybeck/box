@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video Streaming</title>
+  </head>
+  <body>
+    <video id="videoPlayer" controls autoplay></video>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script>
+      const socket = io('10.0.0.79:3333');
+
+      socket.on('video-chunk', (data) => {
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoBlob = new Blob([data], { type: 'video/mp4' });
+        const videoUrl = URL.createObjectURL(videoBlob);
+
+        videoPlayer.src = videoUrl;
+      });
+    </script>
+  </body>
+</html>
