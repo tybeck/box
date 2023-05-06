@@ -2,7 +2,11 @@ import { OnGatewayInit, WebSocketGateway, WebSocketServer } from '@nestjs/websoc
 import { Server } from 'socket.io';
 import { spawn, ChildProcessWithoutNullStreams } from 'child_process';
 
-@WebSocketGateway()
+@WebSocketGateway({
+  cors: {
+    origin: '*',
+  },
+})
 export class CameraGateway implements OnGatewayInit {
   @WebSocketServer()
   server: Server;
