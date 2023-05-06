@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
 
-import { CameraController } from './index.controller';
-import { CameraService } from './index.service';
+import { CameraGateway } from './index.gateway';
 
 @Module({
   imports: [],
-  controllers: [CameraController],
-  providers: [CameraService],
+  controllers: [],
+  providers: [CameraGateway],
 })
 export class CameraModule {}
