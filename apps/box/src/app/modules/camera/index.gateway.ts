@@ -16,7 +16,7 @@ export class CameraGateway implements OnGatewayInit {
   #stream() {
     this.process = spawn('ffmpeg', [
       '-rtsp_transport', 'tcp',
-      '-i', 'rtsp://localhost:8554/stream',
+      '-i', 'rtsp://localhost:8554/unicast',
       '-c', 'copy',
       '-f', 'mp4',
       '-movflags', 'frag_keyframe+empty_moov',
